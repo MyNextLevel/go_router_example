@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'ui/ui.dart';
 import 'tab_notifier.dart';
+import 'shared/routes.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,15 +27,13 @@ class MyApp extends StatelessWidget {
   final _router = GoRouter(
     urlPathStrategy: UrlPathStrategy.path,
     routes: [
+      GoRoute(path: '/', redirect: (_) => '/${Urls.data[0]}'),
       GoRoute(
         path: '/:url',
         builder: (context, GoRouterState state) {
           debugPrint('========> state location: ${state.location}');
           debugPrint('========> state params: ${state.params}');
-          return MainPage(
-            key: state.pageKey,
-            currentUrl: state.params['url'] ?? '',
-          );
+          return MainPage(key: state.pageKey);
         },
         // routes: [
         //   GoRoute(

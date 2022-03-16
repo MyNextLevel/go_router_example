@@ -5,9 +5,8 @@ import 'package:provider/provider.dart';
 import '../tab_notifier.dart';
 
 class MainPage extends StatelessWidget {
-  final String currentUrl;
 
-  const MainPage({Key? key, required this.currentUrl}) : super(key: key);
+  const MainPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
